@@ -21,7 +21,7 @@ cd C:\ALICE_BOX\chesters-imports\the-injector\prod
 Opens `http://127.0.0.1:42961/`
 
 Terminal mail must be up (sdk-import-station) so inject URL works — default  
-`http://127.0.0.1:8765/api/mail/inject` (change if your ROM port differs).
+`http://127.0.0.1:43101/api/mail/inject` (sdk-import-station default; change if yours differs).
 
 ### Seal
 
