@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>THE INJECTOR · Chester's Imports</title>
+    <link rel="stylesheet" href="app.css" />
+  </head>
+  <body>
+    <div id="app">
+      <header class="chrome" data-deck-chrome>
+        <span class="chip" data-deck-menu title="Menu">CRATE<strong>POST</strong></span>
+        <span class="drag" data-deck-drag>not a post office · not your friend</span>
+        <div class="win" data-deck-window-controls aria-label="Window"></div>
+      </header>
+
+      <main class="stage">
+        <p class="blink-line" aria-hidden="true">
+          ▓░░ FORCED DELIVERY WINDOW ░░▓ · provenance optional · denial expected
+        </p>
+
+        <h1 class="title">THE INJECTOR</h1>
+        <p class="tag">
+          Chester’s Imports · product for putting mail
+          <em>where it does not belong</em>.
+          Stations will pretend they do not know you.
+        </p>
+
+        <form id="form" class="form" autocomplete="off">
+          <label class="field">
+            <span class="lab">CRATE SEAL <small>(token · the lie that opens the wall)</small></span>
+            <input
+              type="password"
+              id="token"
+              name="token"
+              value="wire-whisper"
+              spellcheck="false"
+            />
+          </label>
+
+          <label class="field">
+            <span class="lab">WHICH STATION SUFFERS</span>
+            <select id="to" name="to">
+              <option value="io">IO · SDK-808 · green thought vault</option>
+              <option value="ab">AB · KDE-555 · red suppression desk</option>
+            </select>
+          </label>
+
+          <label class="field">
+            <span class="lab">ALLEGED SENDER <small>(who they will blame)</small></span>
+            <input
+              type="text"
+              id="from"
+              name="from"
+              placeholder="e.g. Unknown line &lt;conf@outside.wire&gt;"
+              maxlength="200"
+            />
+          </label>
+
+          <label class="field">
+            <span class="lab">SUBJECT OF THE DISTURBANCE</span>
+            <input type="text" id="subject" name="subject" maxlength="200" placeholder="something they should not open" />
+          </label>
+
+          <label class="field">
+            <span class="lab">WHAT THE PACKAGE SAYS WHEN OPENED</span>
+            <textarea
+              id="body"
+              name="body"
+              rows="10"
+              placeholder="type the harassment · the omen · the joke · the wire does not care"
+            ></textarea>
+          </label>
+
+          <label class="field tight">
+            <span class="lab">WIRE TARGET <small>(station mail inject URL)</small></span>
+            <input
+              type="url"
+              id="endpoint"
+              name="endpoint"
+              value="http://127.0.0.1:8765/api/mail/inject"
+              spellcheck="false"
+            />
+          </label>
+
+          <div class="actions">
+            <button type="submit" class="go" id="btn">
+              FORCE DELIVERY
+            </button>
+            <button type="button" class="ghost" id="btn-clear">wipe form</button>
+          </div>
+        </form>
+
+        <div id="result" class="result" hidden></div>
+
+        <aside class="lore">
+          <p>
+            This is not email. This is a
+            <strong>crate pushed through the wrong door</strong>.
+            Agents may use it. You may regret it. The station will mark it
+            <em>(outside)</em> and still read it.
+          </p>
+          <p class="small">
+            Same wire as CLI <code>tools/mail_inject.php</code> · token default
+            <code>wire-whisper</code> · Chester does not issue refunds.
+          </p>
+        </aside>
+      </main>
+
+      <footer class="foot">
+        CHESTER’S IMPORTS · THE INJECTOR v0 · “we deliver what was never sent”
+      </footer>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
