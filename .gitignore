@@ -1,0 +1,21 @@
+﻿
+
+
+
+# Runtime noise
+**/__pycache__/
+*.py[cod]
+*.log
+*.err
+desk-server.log
+desk-server.err
+.webview_profiles/
+Thumbs.db
+.DS_Store
+
+# Operator mats / papers — local only for now (Hands will un-ignore later)
+safe_box/
+**/safe_box/
+paper/
+**/paper/
+
