@@ -1,4 +1,4 @@
-/* THE INJECTOR — force a letter through the wall */
+/* THE INJECTOR — force a letter through the wall (same-origin proxy) */
 (function () {
   "use strict";
 
@@ -40,35 +40,36 @@
   $("form").addEventListener("submit", async (e) => {
     e.preventDefault();
     const btn = $("btn");
-    const endpoint = ($("endpoint").value || "").trim();
     const token = ($("token").value || "").trim();
     const to = $("to").value;
     const from = ($("from").value || "").trim() || "unknown@outside.wire";
     const subject = ($("subject").value || "").trim() || "(no subject)";
     const body = $("body").value || "";
-
-    if (!endpoint) {
-      showResult(false, pick(SPEAKS_BAD) + "\n\nNo wire target.");
-      return;
-    }
+    // Optional advanced override; empty = server default (sdk-import :43101)
+    const wire = ($("endpoint").value || "").trim();
 
     btn.disabled = true;
     btn.textContent = "PUSHING…";
 
+    const crate = {
+      token: token,
+      to: to,
+      from: from,
+      subject: subject,
+      body: body,
+    };
+    if (wire) crate.wire = wire;
+
     try {
-      const res = await fetch(endpoint, {
+      // Same origin — injector server proxies to the terminal. Fixes CORS /
+      // pywebview "fetch failed" when the UI tried to POST cross-port itself.
+      const res = await fetch("/api/inject", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           "X-Mail-Token": token,
         },
-        body: JSON.stringify({
-          token: token,
-          to: to,
-          from: from,
-          subject: subject,
-          body: body,
-        }),
+        body: JSON.stringify(crate),
       });
       let data = null;
       try {
@@ -84,7 +85,7 @@
           pick(SPEAKS_BAD) +
             "\n\n" +
             err +
-            "\n\n(Is sdk-import-station / terminal mail online?)"
+            "\n\n(Start TERMINALS / sdk-import-station so mail inject is awake.)"
         );
         return;
       }
@@ -113,7 +114,7 @@
         pick(SPEAKS_BAD) +
           "\n\n" +
           (err && err.message ? err.message : String(err)) +
-          "\n\nNetwork refused — start the terminal ROM first."
+          "\n\nInjector glass itself failed — is this window's server alive?"
       );
     } finally {
       btn.disabled = false;

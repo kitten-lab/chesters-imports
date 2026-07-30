@@ -1,7 +1,7 @@
 ```
 =================================================
   THE INJECTOR
-  Chester's Imports · CRATE POST
+  Chester's Imports · CRATE POST · CO.IMP-INJ
 =================================================
 ```
 
@@ -18,10 +18,12 @@ cd C:\ALICE_BOX\chesters-imports\the-injector\prod
 .\run-injector.bat
 ```
 
-Opens `http://127.0.0.1:42961/`
+Opens `http://127.0.0.1:42961/`.
 
-Terminal mail must be up (sdk-import-station) so inject URL works — default  
-`http://127.0.0.1:43101/api/mail/inject` (sdk-import-station default; change if yours differs).
+**TERMINALS** (sdk-import-station) must be up for the crate to land — default wire  
+`http://127.0.0.1:43101/api/mail/inject`. The glass does **not** fetch that URL itself  
+(CORS / Deck Host broke that). UI posts same-origin `POST /api/inject`; this server  
+proxies the wall.
 
 ### Seal
 
@@ -30,13 +32,12 @@ Env override on terminal side: `SDK_MAIL_INJECT_TOKEN`
 
 ### What it does
 
-POSTs the same inject the CLI uses:
-
 ```json
 { "token", "to", "from", "subject", "body" }
 ```
 
-Station MAIL marks it **(outside)**. Station-to-station compose is still the terminal’s job; this product is only the **wrong door**.
+optional `"wire"` override (localhost only). Station MAIL marks **(outside)**.  
+Station-to-station compose is still the terminal’s job; this product is only the **wrong door**.
 
 ### Deck Host
 
@@ -44,7 +45,8 @@ Station MAIL marks it **(outside)**. Station-to-station compose is still the ter
 py -3.12 run-in-deck-host.py
 ```
 
-(from `prod/`)
+from `prod/` — **companion** profile, ~**300×640**, always on top (crate strip).  
+Launcher recipe port **42961** (not 43100).
 
 ---
 

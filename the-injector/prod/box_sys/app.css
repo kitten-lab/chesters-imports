@@ -69,9 +69,10 @@ body {
 .stage {
   flex: 1;
   overflow: auto;
-  padding: 1.25rem 1.5rem 2rem;
-  max-width: 40rem;
-  margin: 0 auto;
+  /* rail / crate strip — not a full desk form */
+  padding: 0.65rem 0.7rem 1rem;
+  max-width: none;
+  margin: 0;
   width: 100%;
 }
 

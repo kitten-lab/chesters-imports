@@ -41,9 +41,11 @@
           <label class="field">
             <span class="lab">WHICH STATION SUFFERS</span>
             <select id="to" name="to">
-              <option value="io">IO · SDK-808 · green thought vault</option>
-              <option value="ab">AB · KDE-555 · red suppression desk</option>
-              <option value="cu">CUX · THE-000 · amber I See You desk</option>
+              <option value="io">IO · green thought vault</option>
+              <option value="ab">AB · red suppression desk</option>
+              <option value="cu">CU · amber I See You</option>
+              <option value="dr">DR · purple-teal project desk</option>
+              <option value="rx">RX · BIOS blue</option>
             </select>
           </label>
 
@@ -74,12 +76,16 @@
           </label>
 
           <label class="field tight">
-            <span class="lab">WIRE TARGET <small>(station mail inject URL)</small></span>
+            <span class="lab"
+              >WIRE OVERRIDE
+              <small>(leave blank · crate posts via this window’s wall)</small></span
+            >
             <input
               type="url"
               id="endpoint"
               name="endpoint"
-              value="http://127.0.0.1:43101/api/mail/inject"
+              value=""
+              placeholder="default: TERMINALS :43101/api/mail/inject"
               spellcheck="false"
             />
           </label>
