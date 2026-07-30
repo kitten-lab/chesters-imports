@@ -3,32 +3,21 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>THE INJECTOR · Chester's Imports</title>
+    <title>THE INJECTOR</title>
     <link rel="stylesheet" href="app.css" />
   </head>
   <body>
     <div id="app">
       <header class="chrome" data-deck-chrome>
-        <span class="chip" data-deck-menu title="Menu">CRATE<strong>POST</strong></span>
-        <span class="drag" data-deck-drag>not a post office · not your friend</span>
+        <span class="chip" data-deck-menu title="Menu">CRATE</span>
+        <span class="drag" data-deck-drag aria-hidden="true"></span>
         <div class="win" data-deck-window-controls aria-label="Window"></div>
       </header>
 
       <main class="stage">
-        <p class="blink-line" aria-hidden="true">
-          ▓░░ FORCED DELIVERY WINDOW ░░▓ · provenance optional · denial expected
-        </p>
-
-        <h1 class="title">THE INJECTOR</h1>
-        <p class="tag">
-          Chester’s Imports · product for putting mail
-          <em>where it does not belong</em>.
-          Stations will pretend they do not know you.
-        </p>
-
         <form id="form" class="form" autocomplete="off">
           <label class="field">
-            <span class="lab">CRATE SEAL <small>(token · the lie that opens the wall)</small></span>
+            <span class="lab">Seal</span>
             <input
               type="password"
               id="token"
@@ -39,84 +28,57 @@
           </label>
 
           <label class="field">
-            <span class="lab">WHICH STATION SUFFERS</span>
+            <span class="lab">Station</span>
             <select id="to" name="to">
-              <option value="io">IO · green thought vault</option>
-              <option value="ab">AB · red suppression desk</option>
-              <option value="cu">CU · amber I See You</option>
-              <option value="dr">DR · purple-teal project desk</option>
-              <option value="rx">RX · BIOS blue</option>
+              <option value="io">IO</option>
+              <option value="ab">AB</option>
+              <option value="cu">CU</option>
+              <option value="dr">DR</option>
+              <option value="rx">RX</option>
             </select>
           </label>
 
           <label class="field">
-            <span class="lab">ALLEGED SENDER <small>(who they will blame)</small></span>
+            <span class="lab">From</span>
             <input
               type="text"
               id="from"
               name="from"
-              placeholder="e.g. Unknown line &lt;conf@outside.wire&gt;"
+              placeholder="sender label"
               maxlength="200"
             />
           </label>
 
           <label class="field">
-            <span class="lab">SUBJECT OF THE DISTURBANCE</span>
-            <input type="text" id="subject" name="subject" maxlength="200" placeholder="something they should not open" />
+            <span class="lab">Subject</span>
+            <input type="text" id="subject" name="subject" maxlength="200" />
           </label>
 
           <label class="field">
-            <span class="lab">WHAT THE PACKAGE SAYS WHEN OPENED</span>
-            <textarea
-              id="body"
-              name="body"
-              rows="10"
-              placeholder="type the harassment · the omen · the joke · the wire does not care"
-            ></textarea>
+            <span class="lab">Body</span>
+            <textarea id="body" name="body" rows="6"></textarea>
           </label>
 
-          <label class="field tight">
-            <span class="lab"
-              >WIRE OVERRIDE
-              <small>(leave blank · crate posts via this window’s wall)</small></span
-            >
+          <details class="adv">
+            <summary>Wire</summary>
             <input
               type="url"
               id="endpoint"
               name="endpoint"
               value=""
-              placeholder="default: TERMINALS :43101/api/mail/inject"
+              placeholder="blank = default"
               spellcheck="false"
             />
-          </label>
+          </details>
 
           <div class="actions">
-            <button type="submit" class="go" id="btn">
-              FORCE DELIVERY
-            </button>
-            <button type="button" class="ghost" id="btn-clear">wipe form</button>
+            <button type="submit" class="go" id="btn">PUSH</button>
+            <button type="button" class="ghost" id="btn-clear">clear</button>
           </div>
         </form>
 
         <div id="result" class="result" hidden></div>
-
-        <aside class="lore">
-          <p>
-            This is not email. This is a
-            <strong>crate pushed through the wrong door</strong>.
-            Agents may use it. You may regret it. The station will mark it
-            <em>(outside)</em> and still read it.
-          </p>
-          <p class="small">
-            Same wire as CLI <code>tools/mail_inject.php</code> · token default
-            <code>wire-whisper</code> · Chester does not issue refunds.
-          </p>
-        </aside>
       </main>
-
-      <footer class="foot">
-        CHESTER’S IMPORTS · THE INJECTOR v0 · “we deliver what was never sent”
-      </footer>
     </div>
     <script src="app.js"></script>
   </body>

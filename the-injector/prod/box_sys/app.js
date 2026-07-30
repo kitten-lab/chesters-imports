@@ -49,7 +49,7 @@
     const wire = ($("endpoint").value || "").trim();
 
     btn.disabled = true;
-    btn.textContent = "PUSHING…";
+    btn.textContent = "…";
 
     const crate = {
       token: token,
@@ -118,7 +118,7 @@
       );
     } finally {
       btn.disabled = false;
-      btn.textContent = "FORCE DELIVERY";
+      btn.textContent = "PUSH";
     }
   });
 })();
